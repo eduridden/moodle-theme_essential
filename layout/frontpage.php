@@ -80,73 +80,89 @@ $haslogo = (!empty($PAGE->theme->settings->logo));
 
 /*
 if ($hasfacebook) {
-	$facebook = $PAGE->theme->settings->facebook;
+    $facebook = $PAGE->theme->settings->facebook;
 }
 
 if ($hastwitter) {
-	$twitter = $PAGE->theme->settings->twitter;
+    $twitter = $PAGE->theme->settings->twitter;
 }
 
 if ($haslinkedin) {
-	$linkedin = $PAGE->theme->settings->linkedin;
+    $linkedin = $PAGE->theme->settings->linkedin;
 }
 
 if ($hasgoogleplus) {
-	$googleplus = $PAGE->theme->settings->googleplus;
+    $googleplus = $PAGE->theme->settings->googleplus;
 }
 */
 
 /* Slide1 settings */
 if ($hasslide1) {
-	$slide1 = $PAGE->theme->settings->slide1;
+    $slide1 = $PAGE->theme->settings->slide1;
 }
 if ($hasslide1image) {
-	$slide1image = $PAGE->theme->settings->slide1image;
+    $slide1image = $PAGE->theme->setting_file_url('slide1image', 'slide1image');
+    if (is_null($slide1image)) {
+        // Get default image 'slide1image' from themes 'images' folder.
+        $slide1image = $OUTPUT->pix_url('images/slide1image', 'theme');
+    }
 }
 if ($hasslide1caption){
-	$slide1caption = $PAGE->theme->settings->slide1caption;
+    $slide1caption = $PAGE->theme->settings->slide1caption;
 } 
 if ($hasslide1url){
-	$slide1url = $PAGE->theme->settings->slide1url;
+    $slide1url = $PAGE->theme->settings->slide1url;
 }
 /* slide2 settings */
 if ($hasslide2){
-	$slide2 = $PAGE->theme->settings->slide2;
+    $slide2 = $PAGE->theme->settings->slide2;
 }
 if ($hasslide2image) {
-	$slide2image = $PAGE->theme->settings->slide2image;
+    $slide2image = $PAGE->theme->setting_file_url('slide2image', 'slide2image');
+    if (is_null($slide2image)) {
+        // Get default image 'slide2image' from themes 'images' folder.
+        $slide3image = $OUTPUT->pix_url('images/slide2image', 'theme');
+    }
 }
 if ($hasslide2caption){
-	$slide2caption = $PAGE->theme->settings->slide2caption;
+    $slide2caption = $PAGE->theme->settings->slide2caption;
 } 
 if ($hasslide2url){
-	$slide2url = $PAGE->theme->settings->slide2url;
+    $slide2url = $PAGE->theme->settings->slide2url;
 }
 /* slide3 settings */
 if ($hasslide3){
-	$slide3 = $PAGE->theme->settings->slide3;
+    $slide3 = $PAGE->theme->settings->slide3;
 }
 if ($hasslide3image) {
-	$slide3image = $PAGE->theme->settings->slide3image;
+    $slide3image = $PAGE->theme->setting_file_url('slide3image', 'slide3image');
+    if (is_null($slide3image)) {
+        // Get default image 'slide3image' from themes 'images' folder.
+        $slide3image = $OUTPUT->pix_url('images/slide3image', 'theme');
+    }
 }
 if ($hasslide3caption){
-	$slide3caption = $PAGE->theme->settings->slide3caption;
+    $slide3caption = $PAGE->theme->settings->slide3caption;
 } 
 if ($hasslide3url){
-	$slide3url = $PAGE->theme->settings->slide3url;
+    $slide3url = $PAGE->theme->settings->slide3url;
 }
 /* slide4 settings */
 if ($hasslide4){
-	$slide4 = $PAGE->theme->settings->slide4;
+    $slide4 = $PAGE->theme->settings->slide4;
 }
 if ($hasslide4image) {
-	$slide4image = $PAGE->theme->settings->slide4image;
+    $slide4image = $PAGE->theme->setting_file_url('slide4image', 'slide4image');
+    if (is_null($slide4image)) {
+        // Get default image 'slide4image' from themes 'images' folder.
+        $slide4image = $OUTPUT->pix_url('images/slide4image', 'theme');
+    }
 }
 if ($hasslide4caption){
-	$slide4caption = $PAGE->theme->settings->slide4caption;
+    $slide4caption = $PAGE->theme->settings->slide4caption;
 } 
 if ($hasslide4url){
-	$slide4url = $PAGE->theme->settings->slide4url;
+    $slide4url = $PAGE->theme->settings->slide4url;
 }
 
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
@@ -193,25 +209,25 @@ echo $OUTPUT->doctype() ?>
     <!-- Google web fonts -->
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
-  	<style type="text/css">
+      <style type="text/css">
         @font-face {
-		font-family: 'FontAwesome';
-		src: url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.eot');
-		src: url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-			url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.woff') format('woff'), 
-			url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.ttf') format('truetype'), 
-			url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.svg') format('svg');
-		font-weight: normal;
-  		font-style: normal;
+        font-family: 'FontAwesome';
+        src: url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.eot');
+        src: url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+            url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.woff') format('woff'), 
+            url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.ttf') format('truetype'), 
+            url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.svg') format('svg');
+        font-weight: normal;
+          font-style: normal;
     </style>
     <style type="text/css">
         @font-face {
-		font-family: 'soul_paparegular';
-		src: url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.eot');
-		src: url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.eot?#iefix') format('embedded-opentype'),
-			url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.woff') format('woff'), 
-			url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.ttf') format('truetype'), 
-			url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.svg') format('svg');
+        font-family: 'soul_paparegular';
+        src: url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.eot');
+        src: url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.eot?#iefix') format('embedded-opentype'),
+            url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.woff') format('woff'), 
+            url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.ttf') format('truetype'), 
+            url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.svg') format('svg');
     </style>
 </head>
 
@@ -248,95 +264,93 @@ echo $OUTPUT->doctype() ?>
 <div id="page" class="container-fluid">
 
 <?php //Start slideshow
-	if ($hasslideshow) {   
+    if ($hasslideshow) {   
 ?>
-	<div id="da-slider" class="da-slider" style="background-position: 8650% 0%;">
+    <div id="da-slider" class="da-slider" style="background-position: 8650% 0%;">
 
-	<?php if ($hasslide1) { ?>
-		<div class="da-slide da-slide-toleft">
-			<h2><?php echo $slide1 ?></h2>
-			<?php if ($hasslide1caption) { ?>
-				<p><?php echo $slide1caption ?></p>
-			<?php } ?>
-			<?php if ($hasslide1url) { ?>
-				<a href="<?php echo $slide1url ?>" class="da-link">Read more</a>
-			<?php } ?>
-			<?php if ($hasslide1image) { ?>
-			<div class="da-img"><img src="<?php echo $slide1image ?>" alt="<?php echo $slide1 ?>"></div>
-			<?php } ?>
-		</div>
-	<?php } ?>
-	
+    <?php if ($hasslide1) { ?>
+        <div class="da-slide da-slide-toleft">
+            <h2><?php echo $slide1 ?></h2>
+            <?php if ($hasslide1caption) { ?>
+                <p><?php echo $slide1caption ?></p>
+            <?php } ?>
+            <?php if ($hasslide1url) { ?>
+                <a href="<?php echo $slide1url ?>" class="da-link">Read more</a>
+            <?php } ?>
+            <?php if ($hasslide1image) { ?>
+            <div class="da-img"><img src="<?php echo $slide1image ?>" alt="<?php echo $slide1 ?>"></div>
+            <?php } ?>
+        </div>
+    <?php } ?>
+    
 
-	<?php if ($hasslide2) { ?>
-		<div class="da-slide da-slide-toleft">
-			<h2><?php echo $slide2 ?></h2>
-			<?php if ($hasslide2caption) { ?>
-				<p><?php echo $slide2caption ?></p>
-			<?php } ?>
-			<?php if ($hasslide2url) { ?>
-				<a href="<?php echo $slide2url ?>" class="da-link">Read more</a>
-			<?php } ?>
-			<?php if ($hasslide2image) { ?>
-			<div class="da-img"><img src="<?php echo $slide2image ?>" alt="<?php echo $slide2 ?>"></div>
-			<?php } ?>
-		</div>
-	<?php } ?>
-	
+    <?php if ($hasslide2) { ?>
+        <div class="da-slide da-slide-toleft">
+            <h2><?php echo $slide2 ?></h2>
+            <?php if ($hasslide2caption) { ?>
+                <p><?php echo $slide2caption ?></p>
+            <?php } ?>
+            <?php if ($hasslide2url) { ?>
+                <a href="<?php echo $slide2url ?>" class="da-link">Read more</a>
+            <?php } ?>
+            <?php if ($hasslide2image) { ?>
+            <div class="da-img"><img src="<?php echo $slide2image ?>" alt="<?php echo $slide2 ?>"></div>
+            <?php } ?>
+        </div>
+    <?php } ?>
+    
 
-	<?php if ($hasslide3) { ?>
-		<div class="da-slide da-slide-toleft">
-			<h2><?php echo $slide3 ?></h2>
-			<?php if ($hasslide3caption) { ?>
-				<p><?php echo $slide3caption ?></p>
-			<?php } ?>
-			<?php if ($hasslide3url) { ?>
-				<a href="<?php echo $slide3url ?>" class="da-link">Read more</a>
-			<?php } ?>
-			<?php if ($hasslide3image) { ?>
-			<div class="da-img"><img src="<?php echo $slide3image ?>" alt="<?php echo $slide3 ?>"></div>
-			<?php } ?>
-		</div>
-	<?php } ?>
-	
+    <?php if ($hasslide3) { ?>
+        <div class="da-slide da-slide-toleft">
+            <h2><?php echo $slide3 ?></h2>
+            <?php if ($hasslide3caption) { ?>
+                <p><?php echo $slide3caption ?></p>
+            <?php } ?>
+            <?php if ($hasslide3url) { ?>
+                <a href="<?php echo $slide3url ?>" class="da-link">Read more</a>
+            <?php } ?>
+            <?php if ($hasslide3image) { ?>
+            <div class="da-img"><img src="<?php echo $slide3image ?>" alt="<?php echo $slide3 ?>"></div>
+            <?php } ?>
+        </div>
+    <?php } ?>
+    
 
-	<?php if ($hasslide4) { ?>
-		<div class="da-slide da-slide-toleft">
-			<h2><?php echo $slide4 ?></h2>
-			<?php if ($hasslide4caption) { ?>
-				<p><?php echo $slide4caption ?></p>
-			<?php } ?>
-			<?php if ($hasslide4url) { ?>
-				<a href="<?php echo $slide4url ?>" class="da-link">Read more</a>
-			<?php } ?>
-			<?php if ($hasslide4image) { ?>
-			<div class="da-img"><img src="<?php echo $slide4image ?>" alt="<?php echo $slide4 ?>"></div>
-			<?php } ?>
-		</div>
-	<?php } ?>
-	
-	
+    <?php if ($hasslide4) { ?>
+        <div class="da-slide da-slide-toleft">
+            <h2><?php echo $slide4 ?></h2>
+            <?php if ($hasslide4caption) { ?>
+                <p><?php echo $slide4caption ?></p>
+            <?php } ?>
+            <?php if ($hasslide4url) { ?>
+                <a href="<?php echo $slide4url ?>" class="da-link">Read more</a>
+            <?php } ?>
+            <?php if ($hasslide4image) { ?>
+            <div class="da-img"><img src="<?php echo $slide4image ?>" alt="<?php echo $slide4 ?>"></div>
+            <?php } ?>
+        </div>
+    <?php } ?>
 
-		<nav class="da-arrows">
-			<span class="da-arrows-prev"></span>
-			<span class="da-arrows-next"></span>
-		</nav>
-		
-	</div>
+        <nav class="da-arrows">
+            <span class="da-arrows-prev"></span>
+            <span class="da-arrows-next"></span>
+        </nav>
+        
+    </div>
 <?php } ?>
 
  <div class="bor"></div>
-		<?php echo $OUTPUT->main_content() ?>
-		<div class="bor"></div>
-		
-		<div id="page-content" class="row-fluid">
-	<?php if ($layout === 'content-only') { ?>
-	<section id="region-main" class="span12">
-	<?php } else { ?>
-	<section id="region-main" class="span9">
-	<?php } ?>
-		<?php echo $coursecontentheader; ?>
-		
+        <?php echo $OUTPUT->main_content() ?>
+        <div class="bor"></div>
+        
+        <div id="page-content" class="row-fluid">
+    <?php if ($layout === 'content-only') { ?>
+    <section id="region-main" class="span12">
+    <?php } else { ?>
+    <section id="region-main" class="span9">
+    <?php } ?>
+        <?php echo $coursecontentheader; ?>
+        
 <div class="row-fluid" id="middle-blocks">
 	<div class="span4">
 		<!-- Service #1 -->
@@ -365,19 +379,19 @@ echo $OUTPUT->doctype() ?>
 		</div>
 	</div>
 </div>
-		<?php echo $coursecontentfooter; ?>
-	</section>
+        <?php echo $coursecontentfooter; ?>
+    </section>
     
     <aside class="span3">
-		<div id="region-pre" class="block-region">
-			<div class="region-content">
-				<?php
-					echo $OUTPUT->blocks_for_region('side-pre');
-					echo $OUTPUT->blocks_for_region('side-post');
-				?>
-         	</div>
-		</div>
-	</aside>
+        <div id="region-pre" class="block-region">
+            <div class="region-content">
+                <?php
+                    echo $OUTPUT->blocks_for_region('side-pre');
+                    echo $OUTPUT->blocks_for_region('side-post');
+                ?>
+             </div>
+        </div>
+    </aside>
 </div>
 
 
@@ -395,25 +409,25 @@ echo $OUTPUT->doctype() ?>
 
 <?php if(is_siteadmin()){ ?>
 <div class="hidden-blocks">
-	<div class="row-fluid">
-		<h4>Blocks moved into the area below will only be seen by admins</h4>
-		<div id="hidden-dock" class="block-region">
-			<div class="region-content">
-			<?php
-				echo $OUTPUT->blocks_for_region('hidden-dock');
-			?>
-			</div>
-		</div>
-	</div>
+    <div class="row-fluid">
+        <h4>Blocks moved into the area below will only be seen by admins</h4>
+        <div id="hidden-dock" class="block-region">
+            <div class="region-content">
+            <?php
+                echo $OUTPUT->blocks_for_region('hidden-dock');
+            ?>
+            </div>
+        </div>
+    </div>
 </div>
 <?php } ?>
 <footer id="page-footer">
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<?php include('footer.php')
-			?>
-		</div>
-	</div>				    
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <?php include('footer.php')
+            ?>
+        </div>
+    </div>                    
 </footer>
 
 <?php echo $OUTPUT->standard_footer_html(); ?>
@@ -423,14 +437,14 @@ echo $OUTPUT->doctype() ?>
 <?php echo $OUTPUT->standard_end_of_body_html() ?>
 
 <script type="text/javascript">
-			$(function() {
-			
-				$('#da-slider').cslider({
-					autoplay	: true,
-					interval : 6000
-				});
-			
-			});
+            $(function() {
+            
+                $('#da-slider').cslider({
+                    autoplay    : true,
+                    interval : 6000
+                });
+            
+            });
 </script>
 
 </body>
