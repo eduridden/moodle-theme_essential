@@ -27,7 +27,7 @@
 function essential_process_css($css, $theme) {
 
 
-	// Set the theme color    if (!empty($theme->settings->themecolor)) {        $themecolor = $theme->settings->themecolor;    } else {        $themecolor = null;    }    $css = essential_set_themecolor($css, $themecolor);
+    // Set the theme color    if (!empty($theme->settings->themecolor)) {        $themecolor = $theme->settings->themecolor;    } else {        $themecolor = null;    }    $css = essential_set_themecolor($css, $themecolor);
     
     
     // Set the background image for the logo.
@@ -41,39 +41,29 @@ function essential_process_css($css, $theme) {
         $customcss = null;
     }
     $css = essential_set_customcss($css, $customcss);
-    
-    if (!empty($theme->settings->slide1image)) {
-        $slide1image = $theme->settings->slide1image;
-    } else {
-        $slide1image = null;
-    }
-    $css = essential_set_slide1image($css, $slide1image);
-    
-    if (!empty($theme->settings->slide2image)) {
-        $slide2image = $theme->settings->slide2image;
-    } else {
-        $slide2image = null;
-    }
-    $css = essential_set_slide2image($css, $slide2image);
-    
-    if (!empty($theme->settings->slide3image)) {
-        $slide3image = $theme->settings->slide3image;
-    } else {
-        $slide3image = null;
-    }
-    $css = essential_set_slide3image($css, $slide3image);
-    
-    if (!empty($theme->settings->slide4image)) {
-        $slide4image = $theme->settings->slide4image;
-    } else {
-        $slide4image = null;
-    }
-    $css = essential_set_slide4image($css, $slide4image);
+
+    $imageno = '1';
+    $setting = 'slide'.$imageno.'image';
+    $slideimage = $theme->setting_file_url($setting, $setting);
+    $css = essential_set_slideimage($css, $slideimage, $setting);
+
+    $imageno = '2';
+    $setting = 'slide'.$imageno.'image';
+    $slideimage = $theme->setting_file_url($setting, $setting);
+    $css = essential_set_slideimage($css, $slideimage, $setting);
+
+    $imageno = '3';
+    $setting = 'slide'.$imageno.'image';
+    $slideimage = $theme->setting_file_url($setting, $setting);
+    $css = essential_set_slideimage($css, $slideimage, $setting);
+
+    $imageno = '4';
+    $setting = 'slide'.$imageno.'image';
+    $slideimage = $theme->setting_file_url($setting, $setting);
+    $css = essential_set_slideimage($css, $slideimage, $setting);
 
     return $css;
-	}
-	
-	
+    }
 
 function essential_set_logo($css, $logo) {
     global $OUTPUT;
@@ -111,47 +101,12 @@ function essential_set_customcss($css, $customcss) {
 
 function essential_set_themecolor($css, $themecolor) {    $tag = '[[setting:themecolor]]';    $replacement = $themecolor;    if (is_null($replacement)) {        $replacement = '#30add1';    }    $css = str_replace($tag, $replacement, $css);    return $css;}
 
-function essential_set_slide1image($css, $slide1image) {
-    $tag = '[[setting:slide1image]]';
-    $replacement = $slide1image;
+function essential_set_slideimage($css, $slideimage, $setting) {
+    global $OUTPUT;
+    $tag = '[[setting:'.$setting.']]';
+    $replacement = $slideimage;
     if (is_null($replacement)) {
-        $replacement = '';
-    }
-
-    $css = str_replace($tag, $replacement, $css);
-
-    return $css;
-}
-
-function essential_set_slide2image($css, $slide2image) {
-    $tag = '[[setting:slide2image]]';
-    $replacement = $slide2image;
-    if (is_null($replacement)) {
-        $replacement = '';
-    }
-
-    $css = str_replace($tag, $replacement, $css);
-
-    return $css;
-}
-
-function essential_set_slide3image($css, $slide3image) {
-    $tag = '[[setting:slide3image]]';
-    $replacement = $slide3image;
-    if (is_null($replacement)) {
-        $replacement = '';
-    }
-
-    $css = str_replace($tag, $replacement, $css);
-
-    return $css;
-}
-
-function essential_set_slide4image($css, $slide4image) {
-    $tag = '[[setting:slide4image]]';
-    $replacement = $slide4image;
-    if (is_null($replacement)) {
-        $replacement = '';
+        $replacement = $OUTPUT->pix_url('images/'.$setting, 'theme');
     }
 
     $css = str_replace($tag, $replacement, $css);
