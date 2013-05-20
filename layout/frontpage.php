@@ -45,11 +45,6 @@ $showfooterleft = ($hasfooterleft && !$PAGE->blocks->region_completely_docked('f
 $showfootermiddle = ($hasfootermiddle && !$PAGE->blocks->region_completely_docked('footer-middle', $OUTPUT));
 $showfooterright = ($hasfooterright && !$PAGE->blocks->region_completely_docked('footer-right', $OUTPUT));
 
-$hasfacebook = (!empty($PAGE->theme->settings->facebook));
-$hastwitter = (!empty($PAGE->theme->settings->twitter));
-$hasgoogleplus = (!empty($PAGE->theme->settings->googleplus));
-$haslinkedin = (!empty($PAGE->theme->settings->linkedin));
-
 $hasslide1 = (!empty($PAGE->theme->settings->slide1));
 $hasslide1image = (!empty($PAGE->theme->settings->slide1image));
 $hasslide1caption = (!empty($PAGE->theme->settings->slide1caption));
@@ -83,6 +78,7 @@ $haslogo = (!empty($PAGE->theme->settings->logo));
 
 /* Social settings */
 
+/*
 if ($hasfacebook) {
     $facebook = $PAGE->theme->settings->facebook;
 }
@@ -98,7 +94,7 @@ if ($haslinkedin) {
 if ($hasgoogleplus) {
     $googleplus = $PAGE->theme->settings->googleplus;
 }
-
+*/
 
 /* Slide1 settings */
 if ($hasslide1) {
@@ -356,32 +352,32 @@ echo $OUTPUT->doctype() ?>
         <?php echo $coursecontentheader; ?>
         
 <div class="row-fluid" id="middle-blocks">
-    <div class="span4">
-        <!-- Service #1 -->
-        <div class="service">
-            <!-- Icon & title. Font Awesome icon used. -->
-            <h5><span><i class="icon-magic"></i> Our Keynote Speakers</span></h5>
-            <p>Each year we search the globe to source recognised passionate experts in the fields of both Moodle and online education to present at the essential. This year we have six fantastic keynotes that are sure to engage all our attendees.</p><p align="right"><a href="http://2013.essential.org/mod/book/view.php?id=1853" id="button">Meet our Keynotes</a></p>
-        </div>
-    </div>
-    
-    <div class="span4">
-        <!-- Service #2 -->
-        <div class="service">
-            <!-- Icon & title. Font Awesome icon used. -->
-            <h5><span><i class="icon-calendar"></i> The essential Program</span></h5>
-            <p>essential provides a 4 day program with 2 simultaneous that runs 24 hours a day. This means that whenever you are here, there is guarranteed to be something that should interest you. All sessions are recorded and available for immediate viewing.</p><p align="right"><a href="http://2013.essential.org/local/schedule/schedulehtml.php" id="button">View The Program</a></p>
-        </div>
-    </div>
-    
-    <div class="span4">
-        <!-- Service #3 -->
-        <div class="service">
-            <!-- Icon & title. Font Awesome icon used. -->
-            <h5><span><i class="icon-bullhorn"></i> Presenting at essential</span></h5>
-            <p>Presenting at essential provides educators the opportunity to share their knowledge with a gobal audience. Many presenters have delivered at local Moots, others are brand new. All are passionate experts in their field.</p><p align="right"><a href="http://2013.essential.org/mod/data/view.php?id=10" id="button">Present at essential</a></p>
-        </div>
-    </div>
+	<div class="span4">
+		<!-- Service #1 -->
+		<div class="service">
+			<!-- Icon & title. Font Awesome icon used. -->
+			<h5><span><i class="icon-magic"></i> Our Keynote Speakers</span></h5>
+			<p>Each year we search the globe to source recognised passionate experts in the fields of both Moodle and online education to present at the essential. This year we have six fantastic keynotes that are sure to engage all our attendees.</p><p align="right"><a href="<?php echo $CFG->wwwroot;?>/mod/book/view.php?id=1853" id="button">Meet our Keynotes</a></p>
+		</div>
+	</div>
+	
+	<div class="span4">
+		<!-- Service #2 -->
+		<div class="service">
+			<!-- Icon & title. Font Awesome icon used. -->
+			<h5><span><i class="icon-calendar"></i> The iMoot Program</span></h5>
+			<p>iMoot provides a 4 day program with 2 simultaneous that runs 24 hours a day. This means that whenever you are here, there is guarranteed to be something that should interest you. All sessions are recorded and available for immediate viewing.</p><p align="right"><a href="<?php echo $CFG->wwwroot;?>/local/schedule/schedulehtml.php" id="button">View The Program</a></p>
+		</div>
+	</div>
+	
+	<div class="span4">
+		<!-- Service #3 -->
+		<div class="service">
+			<!-- Icon & title. Font Awesome icon used. -->
+			<h5><span><i class="icon-bullhorn"></i> Presenting at iMoot</span></h5>
+			<p>Presenting at iMoot provides educators the opportunity to share their knowledge with a gobal audience. Many presenters have delivered at local Moots, others are brand new. All are passionate experts in their field.</p><p align="right"><a href="<?php echo $CFG->wwwroot;?>/mod/data/view.php?id=10" id="button">Present at essential</a></p>
+		</div>
+	</div>
 </div>
         <?php echo $coursecontentfooter; ?>
     </section>
@@ -402,11 +398,13 @@ echo $OUTPUT->doctype() ?>
 
 
 <div class="sponsors">
-        <h4>Our Sponsors</h4>
-        <img src="<?php echo $OUTPUT->pix_url('sponsors/pukunui', 'theme'); ?>" alt="Pukunui" a href="">
-        <img src="<?php echo $OUTPUT->pix_url('sponsors/blindside', 'theme'); ?>" alt="Blindside Networks" a href="">
-        <img src="<?php echo $OUTPUT->pix_url('sponsors/packt', 'theme'); ?>" alt="Packt Publishing" a href="">
-        <img src="<?php echo $OUTPUT->pix_url('sponsors/freemoodle', 'theme'); ?>" alt="Free Moodle" a href="">
+		<h4>Our Sponsors</h4>
+		<a href="<?php echo $CFG->wwwroot;?>/mod/book/view.php?id=39">
+		<img src="<?php echo $OUTPUT->pix_url('sponsors/pukunui', 'theme'); ?>" alt="Pukunui" a href="">
+		<img src="<?php echo $OUTPUT->pix_url('sponsors/blindside', 'theme'); ?>" alt="Blindside Networks" a href="">
+		<img src="<?php echo $OUTPUT->pix_url('sponsors/packt', 'theme'); ?>" alt="Packt Publishing" a href="">
+		<img src="<?php echo $OUTPUT->pix_url('sponsors/freemoodle', 'theme'); ?>" alt="Free Moodle" a href="">
+		</a>
 </div>
 
 <?php if(is_siteadmin()){ ?>
