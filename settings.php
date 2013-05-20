@@ -69,8 +69,15 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtextarea($name, $title, $description, '');
     $settings->add($setting); 
 
-    /*
-    * Slide 2 
+    // URL
+    $name = 'theme_essential/slide1url';
+    $title = get_string('slide1url','theme_essential');
+    $description = get_string('slide1urldesc', 'theme_essential');
+    $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_URL);
+    $settings->add($setting); 
+
+   /*
+    * Slide 2
     */
 
     // Title
@@ -96,8 +103,15 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtextarea($name, $title, $description, '');
     $settings->add($setting); 
 
-   /* 
-    * Slide 3 
+    // URL
+    $name = 'theme_essential/slide2url';
+    $title = get_string('slide2url','theme_essential');
+    $description = get_string('slide2urldesc', 'theme_essential');
+    $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_URL);
+    $settings->add($setting); 
+
+   /*
+    * Slide 3
     */
 
     // Title
@@ -123,7 +137,14 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtextarea($name, $title, $description, '');
     $settings->add($setting); 
 
-   /* 
+    // URL
+    $name = 'theme_essential/slide3url';
+    $title = get_string('slide3url','theme_essential');
+    $description = get_string('slide3urldesc', 'theme_essential');
+    $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_URL);
+    $settings->add($setting); 
+
+   /*
     * Slide 4 
     */
 
@@ -148,6 +169,13 @@ if ($ADMIN->fulltree) {
     $title = get_string('slide4caption','theme_essential');
     $description = get_string('slide4captiondesc', 'theme_essential');
     $setting = new admin_setting_configtextarea($name, $title, $description, '');
+    $settings->add($setting); 
+
+    // URL
+    $name = 'theme_essential/slide4url';
+    $title = get_string('slide4url','theme_essential');
+    $description = get_string('slide4urldesc', 'theme_essential');
+    $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_URL);
     $settings->add($setting); 
 
     // Contact Info setting

@@ -53,15 +53,19 @@ $haslinkedin = (!empty($PAGE->theme->settings->linkedin));
 $hasslide1 = (!empty($PAGE->theme->settings->slide1));
 $hasslide1image = (!empty($PAGE->theme->settings->slide1image));
 $hasslide1caption = (!empty($PAGE->theme->settings->slide1caption));
+$hasslide1url = (!empty($PAGE->theme->settings->slide1url));
 $hasslide2 = (!empty($PAGE->theme->settings->slide2));
 $hasslide2image = (!empty($PAGE->theme->settings->slide2image));
 $hasslide2caption = (!empty($PAGE->theme->settings->slide2caption));
+$hasslide2url = (!empty($PAGE->theme->settings->slide2url));
 $hasslide3 = (!empty($PAGE->theme->settings->slide3));
 $hasslide3image = (!empty($PAGE->theme->settings->slide3image));
 $hasslide3caption = (!empty($PAGE->theme->settings->slide3caption));
+$hasslide3url = (!empty($PAGE->theme->settings->slide3url));
 $hasslide4 = (!empty($PAGE->theme->settings->slide4));
 $hasslide4image = (!empty($PAGE->theme->settings->slide4image));
 $hasslide4caption = (!empty($PAGE->theme->settings->slide4caption));
+$hasslide4url = (!empty($PAGE->theme->settings->slide4url));
 $hasslideshow = ($hasslide1||$hasslide2||$hasslide3||$hasslide4);
 
 // If there can be a sidepost region on this page and we are editing, always
@@ -101,41 +105,53 @@ if ($hasslide1) {
     $slide1 = $PAGE->theme->settings->slide1;
 }
 if ($hasslide1image) {
-    $slide1image = $PAGE->theme->settings->slide1image;
+    $slide1image = $OUTPUT->pix_url('images/slide1image', 'theme');
 }
 if ($hasslide1caption){
     $slide1caption = $PAGE->theme->settings->slide1caption;
 } 
+if ($hasslide1url){
+    $slide1url = $PAGE->theme->settings->slide1url;
+}
 /* slide2 settings */
 if ($hasslide2){
     $slide2 = $PAGE->theme->settings->slide2;
 }
 if ($hasslide2image) {
-    $slide2image = $PAGE->theme->settings->slide2image;
+    $slide2image = $OUTPUT->pix_url('images/slide2image', 'theme');
 }
 if ($hasslide2caption){
     $slide2caption = $PAGE->theme->settings->slide2caption;
 } 
+if ($hasslide2url){
+    $slide2url = $PAGE->theme->settings->slide2url;
+}
 /* slide3 settings */
 if ($hasslide3){
     $slide3 = $PAGE->theme->settings->slide3;
 }
 if ($hasslide3image) {
-    $slide3image = $PAGE->theme->settings->slide3image;
+    $slide3image = $OUTPUT->pix_url('images/slide3image', 'theme');
 }
 if ($hasslide3caption){
     $slide3caption = $PAGE->theme->settings->slide3caption;
 } 
+if ($hasslide3url){
+    $slide3url = $PAGE->theme->settings->slide3url;
+}
 /* slide4 settings */
 if ($hasslide4){
     $slide4 = $PAGE->theme->settings->slide4;
 }
 if ($hasslide4image) {
-    $slide4image = $PAGE->theme->settings->slide4image;
+    $slide4image = $OUTPUT->pix_url('images/slide4image', 'theme');
 }
 if ($hasslide4caption){
     $slide4caption = $PAGE->theme->settings->slide4caption;
 } 
+if ($hasslide4url){
+    $slide4url = $PAGE->theme->settings->slide4url;
+}
 
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 $custommenu = $OUTPUT->custom_menu();
@@ -246,9 +262,11 @@ echo $OUTPUT->doctype() ?>
             <?php if ($hasslide1caption) { ?>
                 <p><?php echo $slide1caption ?></p>
             <?php } ?>
-            <a href="<?php echo $OUTPUT->pix_url('images/slide1image', 'theme') ?>" class="da-link">Read more</a>
+            <?php if ($hasslide1url) { ?>
+                <a href="<?php echo $slide1url ?>" class="da-link">Read more</a>
+            <?php } ?>
             <?php if ($hasslide1image) { ?>
-            <div class="da-img"><img src="<?php echo $slide1image ?>" alt="<?php echo $slide1 ?>"></div>
+            <div class="da-img da-img1"><img src="<?php echo $slide1image ?>" alt="<?php echo $slide1 ?>"></div>
             <?php } ?>
         </div>
     <?php } ?>
@@ -260,9 +278,11 @@ echo $OUTPUT->doctype() ?>
             <?php if ($hasslide2caption) { ?>
                 <p><?php echo $slide2caption ?></p>
             <?php } ?>
-            <a href="<?php echo $OUTPUT->pix_url('images/slide2image', 'theme') ?>" class="da-link">Read more</a>
+            <?php if ($hasslide2url) { ?>
+                <a href="<?php echo $slide2url ?>" class="da-link">Read more</a>
+            <?php } ?>
             <?php if ($hasslide2image) { ?>
-            <div class="da-img"><img src="<?php echo $slide2image ?>" alt="<?php echo $slide2 ?>"></div>
+            <div class="da-img da-img2"><img src="<?php echo $slide2image ?>" alt="<?php echo $slide2 ?>"></div>
             <?php } ?>
         </div>
     <?php } ?>
@@ -274,9 +294,11 @@ echo $OUTPUT->doctype() ?>
             <?php if ($hasslide3caption) { ?>
                 <p><?php echo $slide3caption ?></p>
             <?php } ?>
-            <a href="<?php echo $OUTPUT->pix_url('images/slide3image', 'theme') ?>" class="da-link">Read more</a>
+            <?php if ($hasslide3url) { ?>
+                <a href="<?php echo $slide3url ?>" class="da-link">Read more</a>
+            <?php } ?>
             <?php if ($hasslide3image) { ?>
-            <div class="da-img"><img src="<?php echo $slide3image ?>" alt="<?php echo $slide3 ?>"></div>
+            <div class="da-img da-img3"><img src="<?php echo $slide3image ?>" alt="<?php echo $slide3 ?>"></div>
             <?php } ?>
         </div>
     <?php } ?>
@@ -288,9 +310,11 @@ echo $OUTPUT->doctype() ?>
             <?php if ($hasslide4caption) { ?>
                 <p><?php echo $slide4caption ?></p>
             <?php } ?>
-             <a href="<?php echo $OUTPUT->pix_url('images/slide4image', 'theme') ?>" class="da-link">Read more</a>
+            <?php if ($hasslide4url) { ?>
+                <a href="<?php echo $slide4url ?>" class="da-link">Read more</a>
+            <?php } ?>
             <?php if ($hasslide4image) { ?>
-            <div class="da-img"><img src="<?php echo $slide4image ?>" alt="<?php echo $slide4 ?>"></div>
+            <div class="da-img da-img4"><img src="<?php echo $slide4image ?>" alt="<?php echo $slide4 ?>"></div>
             <?php } ?>
         </div>
     <?php } ?>

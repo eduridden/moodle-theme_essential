@@ -85,6 +85,18 @@ function theme_essential_pluginfile($course, $cm, $context, $filearea, $args, $f
     if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
         $theme = theme_config::load('essential');
         return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'slide1image') {
+        $theme = theme_config::load('essential');
+        return $theme->setting_file_serve('slide1image', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'slide2image') {
+        $theme = theme_config::load('essential');
+        return $theme->setting_file_serve('slide2image', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'slide3image') {
+        $theme = theme_config::load('essential');
+        return $theme->setting_file_serve('slide3image', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'slide4image') {
+        $theme = theme_config::load('essential');
+        return $theme->setting_file_serve('slide4image', $args, $forcedownload, $options);
     } else {
         send_file_not_found();
     }    
