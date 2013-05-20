@@ -47,7 +47,7 @@ function essential_process_css($css, $theme) {
 
     $imageno = '1';
     $setting = 'slide'.$imageno.'image';
-    $slideimage = $theme->setting_file_url($setting, $setting);
+    $slideimage = $theme->setting_file_url($setting, $setting);  // Creates the url for image file which is then served up by 'theme_essential_pluginfile' below.
     $css = essential_set_slideimage($css, $slideimage, $setting);
 
     $imageno = '2';
@@ -131,6 +131,7 @@ function essential_set_slideimage($css, $slideimage, $setting) {
     $tag = '[[setting:'.$setting.']]';
     $replacement = $slideimage;
     if (is_null($replacement)) {
+        // Get default image from themes 'images' folder of the name in $setting.
         $replacement = $OUTPUT->pix_url('images/'.$setting, 'theme');
     }
 

@@ -105,7 +105,11 @@ if ($hasslide1) {
     $slide1 = $PAGE->theme->settings->slide1;
 }
 if ($hasslide1image) {
-    $slide1image = $OUTPUT->pix_url('images/slide1image', 'theme');
+    $slide1image = $PAGE->theme->setting_file_url('slide1image', 'slide1image');
+    if (is_null($slide1image)) {
+        // Get default image 'slide1image' from themes 'images' folder.
+        $slide1image = $OUTPUT->pix_url('images/slide1image', 'theme');
+    }
 }
 if ($hasslide1caption){
     $slide1caption = $PAGE->theme->settings->slide1caption;
@@ -118,7 +122,11 @@ if ($hasslide2){
     $slide2 = $PAGE->theme->settings->slide2;
 }
 if ($hasslide2image) {
-    $slide2image = $OUTPUT->pix_url('images/slide2image', 'theme');
+    $slide2image = $PAGE->theme->setting_file_url('slide2image', 'slide2image');
+    if (is_null($slide2image)) {
+        // Get default image 'slide2image' from themes 'images' folder.
+        $slide3image = $OUTPUT->pix_url('images/slide2image', 'theme');
+    }
 }
 if ($hasslide2caption){
     $slide2caption = $PAGE->theme->settings->slide2caption;
@@ -131,7 +139,11 @@ if ($hasslide3){
     $slide3 = $PAGE->theme->settings->slide3;
 }
 if ($hasslide3image) {
-    $slide3image = $OUTPUT->pix_url('images/slide3image', 'theme');
+    $slide3image = $PAGE->theme->setting_file_url('slide3image', 'slide3image');
+    if (is_null($slide3image)) {
+        // Get default image 'slide3image' from themes 'images' folder.
+        $slide3image = $OUTPUT->pix_url('images/slide3image', 'theme');
+    }
 }
 if ($hasslide3caption){
     $slide3caption = $PAGE->theme->settings->slide3caption;
@@ -144,7 +156,11 @@ if ($hasslide4){
     $slide4 = $PAGE->theme->settings->slide4;
 }
 if ($hasslide4image) {
-    $slide4image = $OUTPUT->pix_url('images/slide4image', 'theme');
+    $slide4image = $PAGE->theme->setting_file_url('slide4image', 'slide4image');
+    if (is_null($slide4image)) {
+        // Get default image 'slide4image' from themes 'images' folder.
+        $slide4image = $OUTPUT->pix_url('images/slide4image', 'theme');
+    }
 }
 if ($hasslide4caption){
     $slide4caption = $PAGE->theme->settings->slide4caption;
@@ -266,7 +282,7 @@ echo $OUTPUT->doctype() ?>
                 <a href="<?php echo $slide1url ?>" class="da-link">Read more</a>
             <?php } ?>
             <?php if ($hasslide1image) { ?>
-            <div class="da-img da-img1"><img src="<?php echo $slide1image ?>" alt="<?php echo $slide1 ?>"></div>
+            <div class="da-img"><img src="<?php echo $slide1image ?>" alt="<?php echo $slide1 ?>"></div>
             <?php } ?>
         </div>
     <?php } ?>
@@ -282,7 +298,7 @@ echo $OUTPUT->doctype() ?>
                 <a href="<?php echo $slide2url ?>" class="da-link">Read more</a>
             <?php } ?>
             <?php if ($hasslide2image) { ?>
-            <div class="da-img da-img2"><img src="<?php echo $slide2image ?>" alt="<?php echo $slide2 ?>"></div>
+            <div class="da-img"><img src="<?php echo $slide2image ?>" alt="<?php echo $slide2 ?>"></div>
             <?php } ?>
         </div>
     <?php } ?>
@@ -298,7 +314,7 @@ echo $OUTPUT->doctype() ?>
                 <a href="<?php echo $slide3url ?>" class="da-link">Read more</a>
             <?php } ?>
             <?php if ($hasslide3image) { ?>
-            <div class="da-img da-img3"><img src="<?php echo $slide3image ?>" alt="<?php echo $slide3 ?>"></div>
+            <div class="da-img"><img src="<?php echo $slide3image ?>" alt="<?php echo $slide3 ?>"></div>
             <?php } ?>
         </div>
     <?php } ?>
@@ -314,7 +330,7 @@ echo $OUTPUT->doctype() ?>
                 <a href="<?php echo $slide4url ?>" class="da-link">Read more</a>
             <?php } ?>
             <?php if ($hasslide4image) { ?>
-            <div class="da-img da-img4"><img src="<?php echo $slide4image ?>" alt="<?php echo $slide4 ?>"></div>
+            <div class="da-img"><img src="<?php echo $slide4image ?>" alt="<?php echo $slide4 ?>"></div>
             <?php } ?>
         </div>
     <?php } ?>
