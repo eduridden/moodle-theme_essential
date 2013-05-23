@@ -119,6 +119,9 @@ $string['themehovercolordesc'] = 'What color should your theme hovers be. This i
 $string['contactinfo'] = 'Contact Information';
 $string['contactinfodesc'] = 'Enter your contact information';
 
+$string['socialnetworks'] = 'Our Social Networks';
+$string['yourprofile'] = 'You';
+
 $string['facebook'] = 'Facebook URL';
 $string['facebookdesc'] = 'Enter the URL of your Facebook page. (i.e http://www.facebook.com/mycollege)';
 
@@ -139,3 +142,6 @@ $string['linkedindesc'] = 'Enter the URL of your LinkedIn profile. (i.e http://w
 
 $string['youtube'] = 'YouTube URL';
 $string['youtubedesc'] = 'Enter the URL of your YouTube channel. (i.e http://www.youtube.com/mycollege)';
+
+$string['headerprofilepic'] = 'Display user\'s picture';
+$string['headerprofilepicdesc'] = 'If checked, displays the user\'s profile picture in the header of the page.';

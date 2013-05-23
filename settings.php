@@ -257,4 +257,13 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
+
+    // User picture in header setting.
+    $name = 'theme_essential/headerprofilepic';
+    $title = get_string('headerprofilepic', 'theme_essential');
+    $description = get_string('headerprofilepicdesc', 'theme_essential');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $settings->add($setting);
 }
