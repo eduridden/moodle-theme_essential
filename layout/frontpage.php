@@ -76,26 +76,6 @@ if ($PAGE->user_is_editing()) {
 
 $haslogo = (!empty($PAGE->theme->settings->logo));
 
-/* Social settings */
-
-/*
-if ($hasfacebook) {
-    $facebook = $PAGE->theme->settings->facebook;
-}
-
-if ($hastwitter) {
-    $twitter = $PAGE->theme->settings->twitter;
-}
-
-if ($haslinkedin) {
-    $linkedin = $PAGE->theme->settings->linkedin;
-}
-
-if ($hasgoogleplus) {
-    $googleplus = $PAGE->theme->settings->googleplus;
-}
-*/
-
 /* Slide1 settings */
 if ($hasslide1) {
     $slide1 = $PAGE->theme->settings->slide1;
@@ -222,6 +202,7 @@ echo $OUTPUT->doctype() ?>
             url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.svg') format('svg');
         font-weight: normal;
         font-style: normal;
+        }
     </style>
     <style type="text/css">
         @font-face {
@@ -231,6 +212,7 @@ echo $OUTPUT->doctype() ?>
             url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.woff') format('woff'), 
             url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.ttf') format('truetype'), 
             url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.svg') format('svg');
+        }
     </style>
 </head>
 
@@ -238,7 +220,8 @@ echo $OUTPUT->doctype() ?>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
-<?php if ($hasheader) {
+<?php
+if ($hasheader) {
     include('header.php');
 }
 ?>
@@ -409,13 +392,13 @@ echo $OUTPUT->doctype() ?>
 </div>
 
 <div class="sponsors">
-        <h4>Our Sponsors</h4>
-        <a href="<?php echo $CFG->wwwroot;?>/mod/book/view.php?id=39">
-        <img src="<?php echo $OUTPUT->pix_url('sponsors/pukunui', 'theme'); ?>" alt="Pukunui" a href="">
-        <img src="<?php echo $OUTPUT->pix_url('sponsors/blindside', 'theme'); ?>" alt="Blindside Networks" a href="">
-        <img src="<?php echo $OUTPUT->pix_url('sponsors/packt', 'theme'); ?>" alt="Packt Publishing" a href="">
-        <img src="<?php echo $OUTPUT->pix_url('sponsors/freemoodle', 'theme'); ?>" alt="Free Moodle" a href="">
-        </a>
+    <h4>Our Sponsors</h4>
+    <a href="<?php echo $CFG->wwwroot;?>/mod/book/view.php?id=39">
+        <img src="<?php echo $OUTPUT->pix_url('sponsors/pukunui', 'theme'); ?>" alt="Pukunui">
+        <img src="<?php echo $OUTPUT->pix_url('sponsors/blindside', 'theme'); ?>" alt="Blindside Networks">
+        <img src="<?php echo $OUTPUT->pix_url('sponsors/packt', 'theme'); ?>" alt="Packt Publishing">
+        <img src="<?php echo $OUTPUT->pix_url('sponsors/freemoodle', 'theme'); ?>" alt="Free Moodle">
+    </a>
 </div>
 
 <?php if (is_siteadmin()) { ?>

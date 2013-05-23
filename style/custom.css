@@ -965,6 +965,12 @@ img.profilepicture
     background: transparent;
 }
 
+/* Additions for profile pic in header */
+
+.socials img {
+    border-radius:250px;
+}
+
 /* @group Custom CSS */
 
 [[setting:customcss]]

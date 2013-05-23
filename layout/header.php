@@ -32,11 +32,16 @@ $haspicasa      = (empty($PAGE->theme->settings->picasa)) ? false : $PAGE->theme
 $haslinkedin    = (empty($PAGE->theme->settings->linkedin)) ? false : $PAGE->theme->settings->linkedin;
 $hasyoutube     = (empty($PAGE->theme->settings->youtube)) ? false : $PAGE->theme->settings->youtube;
 
+// If any of the above social networks are true, sets this to true.
+$hassocialnetworks = ($hasfacebook || $hastwitter || $hasgoogleplus || $haspicasa || $haslinkedin || $hasyoutube ) ? true : false;
+
+$hasheaderprofilepic = (empty($PAGE->theme->settings->headerprofilepic)) ? false : $PAGE->theme->settings->headerprofilepic;
+
 ?>
 <header id="page-header" class="clearfix">
     <div class="container-fluid">
     <div class="row">
-    <!-- HEADER: LOGO AREA -->
+        <!-- HEADER: LOGO AREA -->
         <div class="span5 desktop-first-column">
             <?php
             if (!$haslogo) { ?>
@@ -47,9 +52,28 @@ $hasyoutube     = (empty($PAGE->theme->settings->youtube)) ? false : $PAGE->them
             <?php
             } ?>
         </div>
+
+        <?php if (isloggedin() && $hasheaderprofilepic) { ?>
+        <div class="span1 pull-right">
+            <ul class="socials unstyled">
+                <p><?php print_string('yourprofile', 'theme_essential'); ?></p>
+                <li>
+                    <a href="<?php echo $CFG->wwwroot.'/user/profile.php?id='.$USER->id; ?>">
+                        <?php echo $OUTPUT->user_picture($USER); ?>
+                    </a>
+                </li>
+            </ul>            
+
+        </div>
+        <?php
+        }
+
+        // If true, displays the heading and available social links; displays nothing if false.
+        if ($hassocialnetworks) {
+        ?>
         <div class="span3 pull-right">
             <ul class="socials unstyled">
-            <p>Our Social Networks</p>
+            <p><?php print_string('socialnetworks', 'theme_essential'); ?></p>
                 <?php if ($hasgoogleplus) { ?>
                 <li><a class="googleplus" href="<?php echo $hasgoogleplus; ?>"></a></li>
                 <?php } ?>
@@ -64,7 +88,10 @@ $hasyoutube     = (empty($PAGE->theme->settings->youtube)) ? false : $PAGE->them
                 <?php } ?>
             </ul>
         </div>
-        <?php if (!empty($courseheader)) { ?>
+        <?php 
+        }
+        
+        if (!empty($courseheader)) { ?>
         <div id="course-header"><?php echo $courseheader; ?></div>
         <?php } ?>
     </div>

@@ -109,6 +109,7 @@ echo $OUTPUT->doctype() ?>
             url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/fontawesome-webfont.svg') format('svg');
         font-weight: normal;
         font-style: normal;
+        }
     </style>
     <style type="text/css">
         @font-face {
@@ -118,6 +119,7 @@ echo $OUTPUT->doctype() ?>
             url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.woff') format('woff'), 
             url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.ttf') format('truetype'), 
             url('<?php echo $CFG->wwwroot ?>/theme/essential/fonts/soulpapa-webfont.svg') format('svg');
+        }
     </style>
 </head>
 
@@ -160,7 +162,7 @@ if ($hasheader) {
         <?php if ($layout === 'pre-and-post') { ?>
         <section id="region-main" class="span6 desktop-first-column">
         <?php } else if ($layout === 'side-post-only') { ?>
-        <section id="region-main" class="span8 desktop-first-column">
+        <section id="region-main" class="span9 desktop-first-column">
         <?php } else if ($layout === 'side-pre-only') { ?>
         <section id="region-main" class="span9 desktop-first-column">
         <?php } else if ($layout === 'content-only') { ?>
