@@ -51,7 +51,7 @@ $string['geneicsettings'] = 'General Settings';
 $string['autohide'] = 'Include Autohide Functionality';
 $string['autohidedesc'] = 'The Autohide functionality is designed to make Moodle less intimidating. When editing is turned on edit icons only appear when the item is hovered over.';
 $string['editicons'] = 'Edit Icons V2';
-$string['editiconsdesc'] = 'This utilises the Font Awesome to display colored and neater formatted edit icons in course pages and blocks. Please note that currsently this is NOT compatible with Autohide.';
+$string['editiconsdesc'] = 'This utilises the Font Awesome to display coloured and neater formatted edit icons in course pages and blocks. Please note that currsently this is NOT compatible with Autohide.';
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
 $string['footnote'] = 'Footnote';
@@ -99,28 +99,28 @@ $string['region-footer-right'] = 'Footer (Right)';
 $string['region-hidden-dock'] = 'Hidden from users';
 
 /* Colors */
-$string['colorheading'] = 'Color Settings';
-$string['colorheadingsub'] = 'Set the colors used in your theme';
-$string['colordesc'] = 'Here you can find various settings to change many of the colors found in this theme.';
+$string['colorheading'] = 'Colour Settings';
+$string['colorheadingsub'] = 'Set the colours used in your theme';
+$string['colordesc'] = 'Here you can find various settings to change many of the colours found in this theme.';
 
-$string['themecolor'] = 'Theme Color';
-$string['themecolordesc'] = 'What color should your theme be. This will change mulitple components to produce the color you wish across the moodle site';
-$string['themehovercolor'] = 'Theme Hover Color';
-$string['themehovercolordesc'] = 'What color should your theme hovers be. This is used for links, menus, etc';
-$string['footercolor'] = 'Footer Background Color';
-$string['footercolordesc'] = 'Set what color the background of the Footer box should be.';
-$string['footersepcolor'] = 'Footer Seperator Color';
-$string['footersepcolordesc'] = 'Seperators are lines used to seperate content. Set their color here.';
-$string['footertextcolor'] = 'Footer Text Color';
-$string['footertextcolordesc'] = 'Set the color you want your text to be in the footer.';
-$string['footerurlcolor'] = 'Footer Link Color';
-$string['footerurlcolordesc'] = 'Set the color for your linked text in the footer.';
-$string['footerhovercolor'] = 'Footer Link Hover Color';
-$string['footerhovercolordesc'] = 'Set the color for your linked text when hovered over in the footer.';
-$string['footerheadingcolor'] = 'Footer Heading Color';
-$string['footerheadingcolordesc'] = 'Set the color for block headings in the footer.';
+$string['themecolor'] = 'Theme Colour';
+$string['themecolordesc'] = 'What colour should your theme be. This will change multiple components to produce the colour you wish across the moodle site';
+$string['themehovercolor'] = 'Theme Hover Colour';
+$string['themehovercolordesc'] = 'What colour should your theme hovers be. This is used for links, menus, etc';
+$string['footercolor'] = 'Footer Background Colour';
+$string['footercolordesc'] = 'Set what colour the background of the Footer box should be.';
+$string['footersepcolor'] = 'Footer Seperator Colour';
+$string['footersepcolordesc'] = 'Separators are lines used to separate content. Set their colour here.';
+$string['footertextcolor'] = 'Footer Text Colour';
+$string['footertextcolordesc'] = 'Set the colour you want your text to be in the footer.';
+$string['footerurlcolor'] = 'Footer Link Colour';
+$string['footerurlcolordesc'] = 'Set the colour for your linked text in the footer.';
+$string['footerhovercolor'] = 'Footer Link Hover Colour';
+$string['footerhovercolordesc'] = 'Set the colour for your linked text when hovered over in the footer.';
+$string['footerheadingcolor'] = 'Footer Heading Colour';
+$string['footerheadingcolordesc'] = 'Set the colour for block headings in the footer.';
 $string['pagebackground'] = 'Page Background Image';
-$string['pagebackgrounddesc'] = 'Upload your own background image. This will be tiled in the background on all pages. If noe is uploaded a default image is used.';
+$string['pagebackgrounddesc'] = 'Upload your own background image. This will be tiled in the background on all pages. If nothing is uploaded then a default image is used.';
 
 /* Slideshow */
 $string['slideshowheading'] = 'Frontpage Slideshow';
