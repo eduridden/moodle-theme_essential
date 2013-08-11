@@ -103,7 +103,7 @@ $string['colorheading'] = 'Colour Settings';
 $string['colorheadingsub'] = 'Set the colours used in your theme';
 $string['colordesc'] = 'Here you can find various settings to change many of the colours found in this theme.';
 
-$string['themecolor'] = 'Theme Colpur';
+$string['themecolor'] = 'Theme Colour';
 $string['themecolordesc'] = 'What colour should your theme be. This will change multiple components to produce the colour you wish across the moodle site';
 $string['themehovercolor'] = 'Theme Hover Colour';
 $string['themehovercolordesc'] = 'What colour should your theme hovers be. This is used for links, menus, etc';
