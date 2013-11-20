@@ -1782,3 +1782,8 @@ table.calendarmonth.calendartable {
 .back-to-top:hover{
     text-decoration: none;
 }
+
+/* fixed navbar dropdown in iPhone */
+.nav-collapse{
+	border: 1px solid #30ADD1;
+}
