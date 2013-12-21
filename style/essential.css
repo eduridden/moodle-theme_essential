@@ -37,6 +37,10 @@ a {
     background: none;
 }
 
+.logininfo {
+	margin-right: 5px;
+}
+
 .logininfo,
 .logininfo a {
     color: #fff !important;
@@ -256,10 +260,8 @@ ul.socials {
     text-decoration: none;
 }
 
-.dropdown [class^="fa fa-"] {
-    font-size: 1.1em;
+.dropdown [class^="fa fa-"], .fa-briefcase {
     margin-right: 5px;
-    vertical-align: middle;	
 }
 
 .open > .dropdown-menu {
