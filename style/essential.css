@@ -1681,10 +1681,12 @@ table.calendarmonth.calendartable {
     bottom: 2em;
     left: 50%;
     display: none;
-    text-align:center; 
-    font:11px/100%; 
-    text-transform:uppercase; 
-    text-decoration:none; 
+    text-align:center;
+    font:11px/100%;
+    text-transform:uppercase;
+    text-decoration:none;
+    width:132px;
+    margin-left:-66px;
 }
 
 .back-to-top p{
