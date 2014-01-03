@@ -28,6 +28,12 @@ $haslogo = (!empty($PAGE->theme->settings->logo));
 $hasboringlayout = (empty($PAGE->theme->settings->layout)) ? false : $PAGE->theme->settings->layout;
 $hasanalytics = (empty($PAGE->theme->settings->useanalytics)) ? false : $PAGE->theme->settings->useanalytics;
 
+theme_essential_check_colours_switch();
+theme_essential_initialise_colourswitcher($PAGE);
+
+$bodyclasses = array();
+$bodyclasses[] = 'essential-colours-' . theme_essential_get_colours();
+
 if (right_to_left()) {
     $regionbsid = 'region-bs-main-and-post';
 } else {
@@ -47,7 +53,7 @@ echo $OUTPUT->doctype() ?>
     <?php require_once(dirname(__FILE__).'/includes/iosicons.php'); ?>
 </head>
 
-<body <?php echo $OUTPUT->body_attributes(); ?>>
+<body <?php echo $OUTPUT->body_attributes($bodyclasses); ?>>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
