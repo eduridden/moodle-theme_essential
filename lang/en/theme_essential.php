@@ -285,10 +285,10 @@ $string['marketingbuttonurl'] = 'Link URL';
 $string['marketingbuttonurldesc'] = 'URL the button will point to.';
 
 /* Social Networks */
-$string['socialheading'] = 'Social Networking';
+$string['socialheading'] = 'ASHS Networking';
 $string['socialheadingsub'] = 'Engage your users with Social Networking';
 $string['socialdesc'] = 'Provide direct links to the core social networks that promote your brand.  These will appear in the header of every page.';
-$string['socialnetworks'] = 'Social Networks';
+$string['socialnetworks'] = 'ASHS Networks';
 $string['facebook'] = 'Facebook URL';
 $string['facebookdesc'] = 'Enter the URL of your Facebook page. (i.e http://www.facebook.com/mycollege)';
 
@@ -339,14 +339,14 @@ $string['categoryiconinfodesc'] = 'Each icon is set by "category ID". You get th
 $string['categoryicon'] = 'Category';
 
 /* Mobile Apps */
-$string['mobileappsheading'] = 'Mobile Apps';
+$string['mobileappsheading'] = '*ASHS NEW STAFF MAIL*';
 $string['mobileappsheadingsub'] = 'Link to your App to get your students using Mobiles';
 $string['mobileappsdesc'] = 'Have you got a web app on the App Store or Google Play Store?  Provide a link here so your users can grab the apps online';
 
-$string['android'] = 'Android (Google Play)';
+$string['android'] = 'New Staff Mail';
 $string['androiddesc'] = 'Prove a URL to your mobile App on the Google Play Store.  If you do not have one of your own maybe consider linking to the free official Moodle Mobile app.';
 
-$string['ios'] = 'iPhone/iPad (App Store)';
+$string['ios'] = 'New Staff Mail2';
 $string['iosdesc'] = 'Prove a URL to your mobile App on the App Store.  If you do not have one of your own maybe consider linking to the free official Moodle Mobile app.';
 
 /* iOS Icons */
