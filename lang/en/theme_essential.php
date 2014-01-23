@@ -61,7 +61,7 @@ $string['invertdesc'] = 'Swaps text and background for the navbar at the top of 
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>If you upload a logo it will replace the standard icon and name that was displayed by default.';
 $string['fontselect'] = 'Font Selector';
-$string['fontselectdesc'] = 'Choose from the list of availble font combinations. You can choose here to disable Google fonts if needed.';
+$string['fontselectdesc'] = 'Choose from the list of available font combinations. You can choose here to disable Google fonts if needed.';
 $string['bootstrapcdn'] = 'FontAwesome from CDN';
 $string['bootstrapcdndesc'] = 'If enabled this will load FontAwesome from the online Bootstrap CDN source. Enable this if you are having issues getting the Font Awesome icons to display in your site.';
 $string['copyright'] = 'Copyright';
@@ -82,7 +82,7 @@ $string['frontpageblocksdesc'] = 'Here you can determine if the blocks on the fr
 $string['left'] = 'Left';
 $string['right'] = 'Right';
 $string['perfinfo'] = 'Performance Info Mode';
-$string['perfinfodesc'] = 'Many sites don\'t need the fully detailed performance info.  Especially when viewed by users.  When enabled, this shows a cleaned up miniminal form with basic page load information.';
+$string['perfinfodesc'] = 'Many sites don\'t need the fully detailed performance info.  Especially when viewed by users.  When enabled, this shows a cleaned up minimal form with basic page load information.';
 $string['perf_max'] = 'Detailed';
 $string['perf_min'] = 'Minimal';
 $string['visibleadminonly'] = 'Blocks moved into the area below will only be seen by admins';
@@ -91,7 +91,7 @@ $string['nextsection'] = 'Next Section';
 $string['previoussection'] = 'Previous Section';
 
 $string['pagewidth'] = 'Set Page Width';
-$string['pagewidthdesc'] = 'Choose from the list of availble page widths. for your site';
+$string['pagewidthdesc'] = 'Choose from the list of available page widths. for your site';
 $string['fixedwidthwide'] = 'Fixed Width - Wide';
 $string['fixedwidthnarrow'] = 'Fixed Width - Narrow';
 $string['variablewidth'] = 'Variable Width';
@@ -105,7 +105,7 @@ $string['dontdisplay'] = 'Never Show';
 /* CustomMenu */
 $string['custommenuheading'] = 'Custom Menu';
 $string['custommenuheadingsub'] = 'Add additional functionality to your custommenu.';
-$string['custommenudesc'] = 'Settings here allow you to add new dynamic functionality to the custommenu (also refered to as Dropdown menu)';
+$string['custommenudesc'] = 'Settings here allow you to add new dynamic functionality to the custommenu (also referred to as Dropdown menu)';
 
 $string['mydashboardinfo'] = 'Custom User Dashboard';
 $string['mydashboardinfodesc'] = 'Displays a list of common functions used by users.';
@@ -132,14 +132,14 @@ $string['noenrolments'] = 'You have no current enrolments';
 /* My Dashboard custommenu dropdown */
 $string['mydashboard'] = 'My Dashboard';
 
-/* Navbar Seperator */
+/* Navbar Separator */
 $string['navbarsep'] = 'Navbar Separator';
 $string['navbarsepdesc'] = 'Here you can change the type of separator displayed in the navbar/breadcrumb';
 $string['nav_thinbracket'] = 'Thin bracket';
 $string['nav_doublebracket'] = 'Double thin bracket';
 $string['nav_thickbracket'] = 'Thick Bracket';
 $string['nav_slash'] = 'Forward slash';
-$string['nav_pipe'] = 'Verticle line';
+$string['nav_pipe'] = 'Vertical line';
 
 /* Regions */
 $string['region-side-post'] = 'Right';
@@ -157,20 +157,20 @@ $string['colorheading'] = 'Colour Settings';
 $string['colorheadingsub'] = 'Set the colours used in your theme';
 $string['colordesc'] = 'Here you can find various settings to change many of the colours found in this theme.';
 
-$string['slidecolors'] = 'Slideshow Colors';
-$string['slidecolorsdesc'] = 'Change the colors on the slideshow';
+$string['slidecolors'] = 'Slideshow Colours';
+$string['slidecolorsdesc'] = 'Change the colours on the slideshow';
 
-$string['footercolors'] = 'Footer Colors';
-$string['footercolorsdesc'] = 'Change the colors on the page footers';
+$string['footercolors'] = 'Footer Colours';
+$string['footercolorsdesc'] = 'Change the colours on the page footers';
 
 $string['themecolor'] = 'Theme Colour';
-$string['themecolordesc'] = 'What colour should your theme be.  This will change mulitple components to produce the colour you wish across the moodle site';
+$string['themecolordesc'] = 'What colour should your theme be.  This will change multiple components to produce the colour you wish across the moodle site';
 $string['themehovercolor'] = 'Theme Hover Colour';
 $string['themehovercolordesc'] = 'What colour should your theme hovers be. This is used for links, menus, etc';
 $string['footercolor'] = 'Footer Background Colour';
 $string['footercolordesc'] = 'Set what colour the background of the Footer box should be.';
-$string['footersepcolor'] = 'Footer Seperator Colour';
-$string['footersepcolordesc'] = 'Seperators are lines used to seperate content.  Set their colour here.';
+$string['footersepcolor'] = 'Footer Separator Colour';
+$string['footersepcolordesc'] = 'Separators are lines used to separate content.  Set their colour here.';
 $string['footertextcolor'] = 'Footer Text Colour';
 $string['footertextcolordesc'] = 'Set the colour you want your text to be in the footer.';
 $string['footerurlcolor'] = 'Footer Link Colour';
@@ -216,7 +216,7 @@ $string['slidebuttoncolor'] = 'Slide Button Colour';
 $string['slidebuttoncolordesc'] = 'What colour should the slide "read more" button be';
 
 $string['slideshowvariant'] = 'Slideshow Design';
-$string['slideshowvariantdesc'] = 'Choose the style of slidewhow you would like to display';
+$string['slideshowvariantdesc'] = 'Choose the style of slideshow you would like to display';
 $string['slideshow1'] = 'Small Image on Right';
 $string['slideshow2'] = 'Large Background Image';
 $string['slideshow3'] = 'Design Three';
@@ -242,7 +242,7 @@ $string['marketingheading'] = 'Marketing Spots';
 $string['marketinginfodesc'] = 'Enter the settings for your marketing spot.';
 $string['marketingheadingsub'] = 'Three locations on the front page to add information and links';
 $string['marketingheight'] = 'Height of Marketing Images';
-$string['marketingheightdesc'] = 'If you want to display images in the Marketing boxes you can specify their hight here.';
+$string['marketingheightdesc'] = 'If you want to display images in the Marketing boxes you can specify their height here.';
 $string['marketingdesc'] = 'This theme provides the option of enabling three "marketing" or "ad" spots just under the slideshow.  These allow you to easily identify core information to your users and provide direct links.';
 
 $string['togglemarketing'] = 'Toggle Marketing Spot display';
@@ -290,7 +290,7 @@ $string['flickr'] = 'Flickr URL';
 $string['flickrdesc'] = 'Enter the URL of your Flickr page. (i.e http://www.flickr.com/mycollege)';
 
 $string['vk'] = 'VKontakte URL';
-$string['vkdesc'] = 'Enter the URL of your Vkontakte page. (i.e http://www.vk.com/mycollege)';
+$string['vkdesc'] = 'Enter the URL of your VKontakte page. (i.e http://www.vk.com/mycollege)';
 
 $string['skype'] = 'Skype Account';
 $string['skypedesc'] = 'Enter the Skype username of your organisations Skype account';
@@ -317,7 +317,7 @@ $string['iosdesc'] = 'Prove a URL to your mobile App on the App Store.  If you d
 
 /* iOS Icons */
 $string['iosicon'] = 'iOS Homescreen Icons';
-$string['iosicondesc'] = 'The them does provide a default icon for iOS and android homescreens. You can upload your custom icons if you wish.';
+$string['iosicondesc'] = 'The theme does provide a default icon for iOS and android homescreens. You can upload your custom icons if you wish.';
 
 $string['iphoneicon'] = 'iPhone/iPod Touch Icon (Non Retina)';
 $string['iphoneicondesc'] = 'Icon should be a PNG files sized 57px by 57px';
@@ -337,7 +337,7 @@ $string['analyticsheadingsub'] = 'Powerful analytics from Google';
 $string['analyticsdesc'] = 'Here you can enable Google Analytics for your moodle site. You will need to sign up for a free account at the Google Analytics site (<a href="http://analytics.google.com" target="_blank">http://analytics.google.com</a>)';
 
 $string['useanalytics'] = 'Enable Google Analytics';
-$string['useanalyticsdesc'] = 'Enable or disable Google analytics functionaliy.';
+$string['useanalyticsdesc'] = 'Enable or disable Google analytics functionality.';
 
 $string['analyticsid'] = 'Your Tracking ID';
 $string['analyticsiddesc'] = 'Enter the provided Tracking ID. Typically formatted like UA-XXXXXXXX-X';
