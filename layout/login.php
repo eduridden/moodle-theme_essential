@@ -27,24 +27,13 @@
 $haslogo = (!empty($PAGE->theme->settings->logo));
 $hasboringlayout = (empty($PAGE->theme->settings->layout)) ? false : $PAGE->theme->settings->layout;
 $hasanalytics = (empty($PAGE->theme->settings->useanalytics)) ? false : $PAGE->theme->settings->useanalytics;
-$sideregionsmaxwidth = (!empty($PAGE->theme->settings->sideregionsmaxwidth));
 
 theme_essential_check_colours_switch();
 theme_essential_initialise_colourswitcher($PAGE);
 
 $bodyclasses = array();
-$bodyclasses[] = 'three-column';
 $bodyclasses[] = 'essential-colours-' . theme_essential_get_colours();
-if ($sideregionsmaxwidth) {
-    $bodyclasses[] = 'side-regions-with-max-width';
-}
  
-if (right_to_left()) {
-    $regionbsid = 'region-bs-main-and-post';
-} else {
-    $regionbsid = 'region-bs-main-and-pre';
-}
-
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <head>
@@ -64,7 +53,7 @@ echo $OUTPUT->doctype() ?>
 
 <?php require_once(dirname(__FILE__).'/includes/header.php'); ?>
 
-<header role="banner" class="navbar navbar">
+<header role="banner" class="navbar">
     <nav role="navigation" class="navbar-inner">
         <div class="container-fluid">
             <a class="brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
@@ -84,41 +73,26 @@ echo $OUTPUT->doctype() ?>
     </nav>
 </header>
 
-<!-- Start Main Regions -->
 <div id="page" class="container-fluid">
+    <!-- Start Main Regions -->
     <div id="page-content" class="row-fluid">
-        <div id="<?php echo $regionbsid ?>" class="span9">
-            <div class="row-fluid">
-            	<?php if ($hasboringlayout) { ?>
-                <section id="region-main" class="span8 pull-right">
-                <?php } else { ?>
-                <section id="region-main" class="span8 desktop-first-column">
-                <?php } ?>
-                	<div id="page-navbar" class="clearfix">
-            			<nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
-            			<div class="breadcrumb-nav"><?php echo $OUTPUT->navbar(); ?></div>
-        			</div>
-                    <?php
-                    echo $OUTPUT->course_content_header();
-                    echo $OUTPUT->main_content();
-                    echo $OUTPUT->course_content_footer();
-                    ?>
-                </section>
-                <?php if ($hasboringlayout) { ?>
-                <?php echo $OUTPUT->blocks('side-pre', 'span4 desktop-first-column'); ?>
-                <?php } else { ?>
-                <?php echo $OUTPUT->blocks('side-pre', 'span4 pull-right'); ?>
-                <?php } ?>
+        <section id="region-main" class="span12">
+            <div id="page-navbar" class="clearfix">
+                <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
+                <div class="breadcrumb-nav"><?php echo $OUTPUT->navbar(); ?></div>
             </div>
-        </div>
-        <?php echo $OUTPUT->blocks('side-post', 'span3'); ?>
+            <?php
+            echo $OUTPUT->course_content_header();
+            echo $OUTPUT->main_content();
+            echo $OUTPUT->course_content_footer();
+            ?>
+        </section>
     </div>
-    
     <!-- End Main Regions -->
 
-	<footer id="page-footer" class="container-fluid">
-		<?php require_once(dirname(__FILE__).'/includes/footer.php'); ?>
-	</footer>
+    <footer id="page-footer" class="container-fluid">
+            <?php echo $OUTPUT->standard_footer_html() ;?>     
+    </footer>
 
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 
@@ -126,7 +100,7 @@ echo $OUTPUT->doctype() ?>
 
 <!-- Start Google Analytics -->
 <?php if ($hasanalytics) { ?>
-	<?php require_once(dirname(__FILE__).'/includes/analytics.php'); ?>
+    <?php require_once(dirname(__FILE__).'/includes/analytics.php'); ?>
 <?php } ?>
 <!-- End Google Analytics -->
 
