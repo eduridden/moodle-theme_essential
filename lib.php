@@ -35,27 +35,6 @@
  */
 
 /**
- * Include the Awesome Font.
- */
-function theme_essential_set_fontwww($css) {
-    global $CFG, $PAGE;
-    if(empty($CFG->themewww)){
-        $themewww = $CFG->wwwroot."/theme";
-    } else {
-        $themewww = $CFG->themewww;
-    }
-    $tag = '[[setting:fontwww]]';
-    
-    $theme = theme_config::load('essential');
-    if (!empty($theme->settings->bootstrapcdn)) {
-    	$css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.0.0/fonts/', $css);
-    } else {
-    	$css = str_replace($tag, $themewww.'/essential/fonts/', $css);
-    }
-    return $css;
-}
-
-/**
  * Adds the logo to CSS.
  *
  * @param string $css The CSS.
@@ -545,7 +524,6 @@ function theme_essential_process_css($css, $theme) {
 
     // Set the font path.
 
-    $css = theme_essential_set_fontwww($css);
     return $css;
 }
 
