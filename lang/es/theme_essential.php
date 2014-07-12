@@ -47,7 +47,7 @@ Sitio web: <a href="http://www.moodleman.net">www.moodleman.net</a>
 </div></div>';
 
 /* General */
-$string['geneicsettings'] = 'Ajustes generales';
+$string['genericsettings'] = 'Ajustes generales';
 $string['autohide'] = 'Incluir funcionalidad de ocultamiento automático';
 $string['autohidedesc'] = 'La funcionalidad de ocultamiento automático está diseñada para hacer menos confusa la interface de la plataforma. Al estar activo el modo de edición, los iconos de modificación solo aparecerán al ubicarse sobre cada bloque.';
 $string['editicons'] = 'Editar Iconos V2';
@@ -131,7 +131,6 @@ $string['display'] = 'Mostrar';
 $string['dontdisplay'] = 'No Mostrar';
 $string['readmore'] = 'Read More';
 
-$string['slideshowTitle'] = 'Carrusel de diapositivas';
 $string['slide1'] = 'Diapositiva Uno: Título';
 $string['slide1desc'] = 'Coloque un título descriptivo a su diapositiva';
 $string['slide1image'] = 'Diapositiva Uno: Imagen';

@@ -24,38 +24,41 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
  
-$footerl = 'footer-left';
-$footerm = 'footer-middle';
-$footerr = 'footer-right';
-
 $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->theme->settings->copyright;
 $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme->settings->footnote;
-$hasfooterleft = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('footer-left', $OUTPUT));
-$hasfootermiddle = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('footer-middle', $OUTPUT));
-$hasfooterright = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('footer-right', $OUTPUT));
 
 ?>
-	<div class="row-fluid">
-		<?php
-            		echo $OUTPUT->essentialblocks($footerl, 'span4');
+<footer role="contentinfo" id="page-footer">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span4 pull-left">
+				<div class="column">
+					<?php echo $OUTPUT->essentialblocks('footer-left'); ?>
+				</div>
+			</div>
+			<div class="span4 center">
+				<div class="column">
+					<?php echo $OUTPUT->essentialblocks('footer-middle'); ?>
+				</div>
+			</div>
+			<div class="span4 pull-right">
+				<div class="column">
+					<?php echo $OUTPUT->essentialblocks('footer-right'); ?>
+				</div>
+			</div>
+		</div>
 
-            		echo $OUTPUT->essentialblocks($footerm, 'span4');
+		<div class="footerlinks row-fluid">
+			<hr>
+			<p class="helplink"><?php echo page_doc_link(get_string('moodledocslink')); ?></p>
+		<?php if ($hascopyright) {
+			echo '<p class="copy">&copy; '.date("Y").' '.$hascopyright.'</p>';
+		} ?>
 
-            		echo $OUTPUT->essentialblocks($footerr, 'span4');
-		?>
- 	</div>
-
-	<div class="footerlinks row-fluid">
-    	<hr>
-    	<p class="helplink"><?php echo page_doc_link(get_string('moodledocslink')); ?></p>
-    <?php if ($hascopyright) {
-        echo '<p class="copy">&copy; '.date("Y").' '.$hascopyright.'</p>';
-    } ?>
-    
-    <?php if ($hasfootnote) {
-        echo '<div class="footnote">'.$hasfootnote.'</div>';
-    } ?>
+		<?php if ($hasfootnote) {
+			echo '<div class="footnote">'.$hasfootnote.'</div>';
+		} ?>
+		</div>
+		<?php echo $OUTPUT->standard_footer_html(); ?>
 	</div>
-	<?php echo $OUTPUT->standard_footer_html(); ?>
-	
-
+</footer>

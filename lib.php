@@ -48,9 +48,9 @@ function theme_essential_set_fontwww($css) {
     
     $theme = theme_config::load('essential');
     if (!empty($theme->settings->bootstrapcdn)) {
-    	$css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.0.0/fonts/', $css);
+        $css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.0.0/fonts/', $css);
     } else {
-    	$css = str_replace($tag, $themewww.'/essential/fonts/', $css);
+        $css = str_replace($tag, $themewww.'/essential/fonts/', $css);
     }
     return $css;
 }
@@ -141,12 +141,12 @@ function essential_set_pagewidth($css, $pagewidth) {
  * @return string
  */
 function essential_set_editicons($css, $editicons) {
-	global $CFG;
-	if (!empty($CFG->themedir)) {
-		$editiconsurl = $CFG->themedir . '/essential/style/editicons.css'; //Pull the full path for autohide css
-	} else {
-		$editiconsurl = $CFG->dirroot . '/theme/essential/style/editicons.css'; //MDL-36065
-	}
+    global $CFG;
+    if (!empty($CFG->themedir)) {
+        $editiconsurl = $CFG->themedir . '/essential/style/editicons.css'; //Pull the full path for autohide css
+    } else {
+        $editiconsurl = $CFG->dirroot . '/theme/essential/style/editicons.css'; //MDL-36065
+    }
     $tag = '[[setting:editicons]]';
     if ($editicons) { //Setting is "YES"
         $rules = file_get_contents($editiconsurl);
@@ -167,12 +167,19 @@ function essential_set_editicons($css, $editicons) {
  * @return string
  */
 function essential_performance_output($param) {
-	
+    
     $html = '<div class="container-fluid performanceinfo"><div class="row-fluid"><h2>Performance Information</h2></div><div class="row-fluid">';
-	if (isset($param['realtime'])) $html .= '<div class="span3"><a href="#"><var id="load">'.$param['realtime'].' secs</var><span>Load Time</span></a></div>';
-	if (isset($param['memory_total'])) $html .= '<div class="span3"><a href="#"><var id="memory">'.display_size($param['memory_total']).'</var><span>Memory Used</span></a></div>';
-    if (isset($param['includecount'])) $html .= '<div class="span3"><a href="#"><var id="included">'.$param['includecount'].' Files </var><span>Included</span></a></div>';
-    if (isset($param['dbqueries'])) $html .= '<div class="span3"><a href="#"><var id="db">'.$param['dbqueries'].' </var><span>DB Read/Write</span></a></div>';
+    if (isset($param['realtime'])) { $html .= '<div class="span3"><var id="load">'.round($param['realtime'], 2).' secs</var><span>Load Time</span></div>'; }
+    if (isset($param['memory_total'])) { $html .= '<div class="span3"><var id="memory">'.display_size($param['memory_total']).'</var><span>Memory Used</span></div>'; }
+    if (isset($param['includecount'])) { $html .= '<div class="span3"><var id="included">'.$param['includecount'].' Files </var><span>Included</span></div>'; }
+    if (isset($param['dbqueries'])) { $html .= '<div class="span3"><var id="db">'.$param['dbqueries'].' </var><span>DB Read/Write</span></div>'; }
+    if ($theme->settings->perfinfo === "max") {
+        $html .= '</div><hr /><div class="row-fluid"><h2>Extended Performance Information</h2></div><div class="row-fluid">';
+        if (isset($param['serverload'])) { $html .= '<div class="span3"><var id="load">'.$param['serverload'].' </var><span>Server Load</span></div>'; }
+        if (isset($param['memory_peak'])) { $html .= '<div class="span3"><var id="memory">'.display_size($param['memory_peak']).' </var><span>Peak Memory</span></div>'; }
+        if (isset($param['cachesused'])) { $html .= '<div class="span3"><var id="cache">'.$param['cachesused'].' </var><span>Caches Used</span></div>'; }
+        if (isset($param['sessionsize'])) { $html .= '<div class="span3"><var id="session">'.$param['sessionsize'].' </var><span>Session Size</span></div>'; }
+    }
     $html .= '</div>';
     $html .= '</div>';
 
@@ -382,13 +389,21 @@ function theme_essential_process_css($css, $theme) {
     $css = theme_essential_set_footerhovercolor($css, $footerhovercolor);
 
 
-// Set the footer heading color.
+    // Set the footer heading color.
     if (!empty($theme->settings->footerheadingcolor)) {
         $footerheadingcolor = $theme->settings->footerheadingcolor;
     } else {
         $footerheadingcolor = null;
     }
     $css = theme_essential_set_footerheadingcolor($css, $footerheadingcolor);
+
+     // Set the slide header color.
+    if (!empty($theme->settings->slideshowcolor)) {
+        $slideshowcolor = $theme->settings->slideshowcolor;
+    } else {
+        $slideshowcolor = null;
+    }
+    $css = theme_essential_set_slideshowcolor($css, $slideshowcolor);
     
      // Set the slide header color.
     if (!empty($theme->settings->slideheadercolor)) {
@@ -413,6 +428,14 @@ function theme_essential_process_css($css, $theme) {
         $slidebuttoncolor = null;
     }
     $css = theme_essential_set_slidebuttoncolor($css, $slidebuttoncolor);
+
+     // Set the slide button hover color.
+    if (!empty($theme->settings->slidebuttonhovercolor)) {
+        $slidebuttonhovercolor = $theme->settings->slidebuttonhovercolor;
+    } else {
+        $slidebuttonhovercolor = null;
+    }
+    $css = theme_essential_set_slidebuttonhovercolor($css, $slidebuttonhovercolor);
 
     // Set theme alternative colors.
     $defaultalternativethemecolors = array('#a430d1', '#d15430', '#5dd130');
@@ -458,29 +481,10 @@ function theme_essential_process_css($css, $theme) {
     $pagebackground = $theme->setting_file_url($setting, $setting);
     $css = theme_essential_set_pagebackground($css, $pagebackground, $setting);
     
-    // Set the Defaut Category Icon.
-    if (!empty($theme->settings->defaultcategoryicon)) {
-        $defaultcategoryicon = $theme->settings->defaultcategoryicon;
-    } else {
-        $defaultcategoryicon = null;
-    }
-    $css = theme_essential_set_defaultcategoryicon($css, $defaultcategoryicon);
-    
-    // Set Category Icons.
-    foreach (range(1, 20) as $categorynumber) {
-        $categoryicon = $defaultcategoryicon;
-        if (!empty($theme->settings->usecategoryicon)) {
-            if (!empty($theme->settings->{'categoryicon' . $categorynumber})) {
-                $categoryicon = $theme->settings->{'categoryicon' . $categorynumber};
-            }
-        }
-        $css = theme_essential_set_categoryicon($css, $categoryicon, $categorynumber);
-    }
-    
     // Set Slide Images.
     $setting = 'slide1image';
     if (!empty($theme->settings->slide1image)) {
-    	$slideimage = $theme->setting_file_url($setting, $setting);
+        $slideimage = $theme->setting_file_url($setting, $setting);
     } else {
         $slideimage = null;
     }
@@ -488,7 +492,7 @@ function theme_essential_process_css($css, $theme) {
 
     $setting = 'slide2image';
     if (!empty($theme->settings->slide2image)) {
-    	$slideimage = $theme->setting_file_url($setting, $setting);
+        $slideimage = $theme->setting_file_url($setting, $setting);
     } else {
         $slideimage = null;
     }
@@ -496,7 +500,7 @@ function theme_essential_process_css($css, $theme) {
 
     $setting = 'slide3image';
     if (!empty($theme->settings->slide3image)) {
-    	$slideimage = $theme->setting_file_url($setting, $setting);
+        $slideimage = $theme->setting_file_url($setting, $setting);
     } else {
         $slideimage = null;
     }
@@ -504,7 +508,7 @@ function theme_essential_process_css($css, $theme) {
 
     $setting = 'slide4image';
     if (!empty($theme->settings->slide4image)) {
-    	$slideimage = $theme->setting_file_url($setting, $setting);
+        $slideimage = $theme->setting_file_url($setting, $setting);
     } else {
         $slideimage = null;
     }
@@ -521,7 +525,7 @@ function theme_essential_process_css($css, $theme) {
     // Set Marketing Images.
     $setting = 'marketing1image';
     if (!empty($theme->settings->marketing1image)) {
-    	$marketingimage = $theme->setting_file_url($setting, $setting);
+        $marketingimage = $theme->setting_file_url($setting, $setting);
     } else {
         $marketingimage = null;
     }
@@ -529,7 +533,7 @@ function theme_essential_process_css($css, $theme) {
     
     $setting = 'marketing2image';
     if (!empty($theme->settings->marketing2image)) {
-    	$marketingimage = $theme->setting_file_url($setting, $setting);
+        $marketingimage = $theme->setting_file_url($setting, $setting);
     } else {
         $marketingimage = null;
     }
@@ -537,7 +541,7 @@ function theme_essential_process_css($css, $theme) {
     
     $setting = 'marketing3image';
     if (!empty($theme->settings->marketing3image)) {
-    	$marketingimage = $theme->setting_file_url($setting, $setting);
+        $marketingimage = $theme->setting_file_url($setting, $setting);
     } else {
         $marketingimage = null;
     }
@@ -716,6 +720,16 @@ function theme_essential_set_footerheadingcolor($css, $footerheadingcolor) {
     return $css;
 }
 
+function theme_essential_set_slideshowcolor($css, $slideshowcolor) {
+    $tag = '[[setting:slideshowcolor]]';
+    $replacement = $slideshowcolor;
+    if (is_null($replacement)) {
+        $replacement = '#30add1';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
 function theme_essential_set_slideheadercolor($css, $slideheadercolor) {
     $tag = '[[setting:slideheadercolor]]';
     $replacement = $slideheadercolor;
@@ -746,6 +760,16 @@ function theme_essential_set_slidebuttoncolor($css, $slidebuttoncolor) {
     return $css;
 }
 
+function theme_essential_set_slidebuttonhovercolor($css, $slidebuttonhovercolor) {
+    $tag = '[[setting:slidebuttonhovercolor]]';
+    $replacement = $slidebuttonhovercolor;
+    if (is_null($replacement)) {
+        $replacement = '#45b5d6';
+    }
+    $css = str_replace($tag, $replacement, $css);
+    return $css;
+}
+
 function theme_essential_set_footersepcolor($css, $footersepcolor) {
     $tag = '[[setting:footersepcolor]]';
     $replacement = $footersepcolor;
@@ -770,10 +794,6 @@ function theme_essential_set_pagebackground($css, $pagebackground, $setting) {
     global $OUTPUT;
     $tag = '[[setting:pagebackground]]';
     $replacement = $pagebackground;
-    if (is_null($replacement)) {
-        // Get default image from themes 'bg' folder of the name in $setting.
-        $replacement = $OUTPUT->pix_url('bg/body', 'theme');
-    }
     $css = str_replace($tag, $replacement, $css);
     return $css;
 }
@@ -804,31 +824,29 @@ function theme_essential_set_marketingimage($css, $marketingimage, $setting) {
     return $css;
 }
 
-function theme_essential_set_defaultcategoryicon($css, $defaultcategoryicon) {
-    $tag = '[[setting:defaultcategoryicon]]';
-    $replacement = $defaultcategoryicon;
-    if (is_null($replacement)) {
-        $replacement = 'f07c';
+function theme_essential_showslider($settings) {
+    $noslides = (empty($settings->numberofslides)) ? false : $settings->numberofslides;
+    if ($noslides) {
+        $devicetype = core_useragent::get_device_type(); // In moodlelib.php.
+        if ($devicetype == "mobile") {
+            $mobile = (empty($settings->hideonphone)) ? false : $settings->hideonphone;
+            if ($mobile == 'hidden-phone') {
+                $noslides = false;
+            }
+        } else if ($devicetype == "tablet") {
+            $tablet = (empty($settings->hideontablet)) ? false : $settings->hideontablet;
+            if ($tablet == 'hidden-tablet') {
+                $noslides = false;
+            }
+        }
     }
-    $css = str_replace($tag, $replacement, $css);
-    return $css;
+
+    return $noslides;
 }
 
-function theme_essential_set_categoryicon($css, $categoryicon, $categorynumber) {
-    $tag = '[[setting:categoryicon'. $categorynumber.']]';
-    $replacement = $categoryicon;
-    
-    if (is_null($replacement)) {
-        $replacement = $defaultcategoryicon;
-    }
-    $css = str_replace($tag, $replacement, $css);
-    return $css;
-}
 
 function theme_essential_page_init(moodle_page $page) {
     $page->requires->jquery();
-    $page->requires->jquery_plugin('cslider', 'theme_essential');
-    $page->requires->jquery_plugin('custom', 'theme_essential'); 
     $page->requires->jquery_plugin('alert', 'theme_essential');
     $page->requires->jquery_plugin('carousel', 'theme_essential');
     $page->requires->jquery_plugin('collapse', 'theme_essential');
@@ -838,4 +856,5 @@ function theme_essential_page_init(moodle_page $page) {
     $page->requires->jquery_plugin('tooltip', 'theme_essential');
     $page->requires->jquery_plugin('transition', 'theme_essential');
     $page->requires->jquery_plugin('modernizr', 'theme_essential');  
+    $page->requires->jquery_plugin('custom', 'theme_essential'); 
 }
