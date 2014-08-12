@@ -8,3 +8,6 @@ ehthumbs.db
 Thumbs.db
 *.psd
 *.bak
+quickpush.sh
+/node_modules
+/style/*.map

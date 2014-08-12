@@ -15,31 +15,17 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The Essential theme is built upon the Bootstrapbase theme.
+ * This is built using the bootstrapbase template to allow for new theme's using
+ * Moodle's new Bootstrap theme engine
  *
- * @package    theme
- * @subpackage Essential
- * @author     Julian (@moodleman) Ridden
- * @author     Based on code originally written by G J Bernard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     theme_essential
+ * @copyright   2013 Julian Ridden
+ * @copyright   2014 Gareth J Barnard, David Bezemer
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$haslogo = (!empty($PAGE->theme->settings->logo));
-$hasboringlayout = (empty($PAGE->theme->settings->layout)) ? false : $PAGE->theme->settings->layout;
-$hasanalytics = (empty($PAGE->theme->settings->useanalytics)) ? false : $PAGE->theme->settings->useanalytics;
-$sideregionsmaxwidth = (!empty($PAGE->theme->settings->sideregionsmaxwidth));
+require_once(dirname(__FILE__).'/includes/pagesettings.php');
 
-theme_essential_check_colours_switch();
-theme_essential_initialise_colourswitcher($PAGE);
-
-$bodyclasses = array();
-$bodyclasses[] = 'two-column';
-$bodyclasses[] = 'essential-colours-' . theme_essential_get_colours();
-if ($sideregionsmaxwidth) {
-    $bodyclasses[] = 'side-regions-with-max-width';
-}
- 
-$left = (!right_to_left());  // To know if to add 'pull-right' and 'desktop-first-column' classes in the layout for LTR.
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 <head>
@@ -51,6 +37,11 @@ echo $OUTPUT->doctype() ?>
     <?php require_once(dirname(__FILE__).'/includes/fonts.php'); ?>
     <!-- iOS Homescreen Icons -->
     <?php require_once(dirname(__FILE__).'/includes/iosicons.php'); ?>
+    <!-- Start Google Analytics -->
+    <?php if ($hasanalytics) {
+        require_once(dirname(__FILE__).'/includes/analytics.php');
+    } ?>
+    <!-- End Google Analytics -->
 </head>
 
 <body <?php echo $OUTPUT->body_attributes($bodyclasses); ?>>
@@ -59,85 +50,35 @@ echo $OUTPUT->doctype() ?>
 
 <?php require_once(dirname(__FILE__).'/includes/header.php'); ?>
 
-<header role="banner" class="navbar">
-    <nav role="navigation" class="navbar-inner">
-        <div class="container-fluid">
-            <a class="brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <div class="nav-collapse collapse">
-                <?php echo $OUTPUT->custom_menu(); ?>
-                <ul class="nav pull-right">
-                    <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
-                    <li class="navbar-text"><?php echo $OUTPUT->login_info() ?></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<!-- Start Main Regions -->
 <div id="page" class="container-fluid">
-
-    <div id="page-content" class="row-fluid">
-        <section id="region-main" class="span9<?php if ($left) { echo ' pull-right'; } ?>">
-        	<div id="page-navbar" class="clearfix">
-            	<div class="breadcrumb-nav"><?php echo $OUTPUT->navbar(); ?></div>
-            	<nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
-        	</div>
+    <section role="main-content">
+        <!-- Start Main Regions -->
+        <div id="page-content" class="row-fluid">
+            <section id="<?php echo $regionbsid;?>" class="span9<?php if ($left) { echo ' pull-right'; } ?>">
+                <div id="page-navbar" class="clearfix row-fluid">
+                    <div class="breadcrumb-nav span10 pull-<?php echo ($left) ? 'left' : 'right'; ?>"><?php echo $OUTPUT->navbar(); ?></div>
+                    <nav class="breadcrumb-button span2 pull-<?php echo ($left) ? 'right' : 'left'; ?>"><?php echo $OUTPUT->page_heading_button(); ?></nav>
+                </div>
+                
+                <?php
+                echo $OUTPUT->course_content_header();
+                echo $OUTPUT->main_content();
+                echo $OUTPUT->course_content_footer();
+                ?>
+            </section>
             <?php
-            echo $OUTPUT->course_content_header();
-            echo $OUTPUT->main_content();
-            echo $OUTPUT->course_content_footer();
+            $classextra = '';
+            if ($left) {
+                $classextra = ' desktop-first-column';
+            }
+            echo $OUTPUT->blocks('side-pre', 'span3'.$classextra);
             ?>
-        </section>
-        <?php
-        $classextra = '';
-        if ($left) {
-            $classextra = ' desktop-first-column';
-        }
-        echo $OUTPUT->blocks('side-pre', 'span3'.$classextra);
-        ?>
-    </div>
-    
-    <!-- End Main Regions -->
-
-	<footer id="page-footer" class="container-fluid">
-		<?php require_once(dirname(__FILE__).'/includes/footer.php'); ?>
-	</footer>
-
-    <?php echo $OUTPUT->standard_end_of_body_html() ?>
-
+        </div>
+        <!-- End Main Regions -->
+    </section>
 </div>
 
-<!-- Start Google Analytics -->
-<?php if ($hasanalytics) { ?>
-	<?php require_once(dirname(__FILE__).'/includes/analytics.php'); ?>
-<?php } ?>
-<!-- End Google Analytics -->
+<?php require_once(dirname(__FILE__).'/includes/footer.php'); ?>
 
-<script type="text/javascript">
-jQuery(document).ready(function() {
-    var offset = 220;
-    var duration = 500;
-    jQuery(window).scroll(function() {
-        if (jQuery(this).scrollTop() > offset) {
-            jQuery('.back-to-top').fadeIn(duration);
-        } else {
-            jQuery('.back-to-top').fadeOut(duration);
-        }
-    });
-    
-    jQuery('.back-to-top').click(function(event) {
-        event.preventDefault();
-        jQuery('html, body').animate({scrollTop: 0}, duration);
-        return false;
-    })
-});
-</script>
-<a href="#top" class="back-to-top" title="<?php print_string('backtotop', 'theme_essential'); ?>"><i class="fa fa-angle-up "></i></a>
 </body>
 </html>
